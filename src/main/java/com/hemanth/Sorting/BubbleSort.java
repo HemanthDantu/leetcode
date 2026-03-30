@@ -6,7 +6,7 @@ import java.util.List;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(doBubbleSort(new int[]{16, 49, 3, 12, 56, 49, 55, 22, 13, 46, 19, 55, 46, 13, 25, 56, 9, 48, 45})));
+        System.out.println(Arrays.toString(doBubbleSortAgain(new int[]{16, 49, 3, 12, 56, 49, 55, 22, 13, 46, 19, 55, 46, 13, 25, 56, 9, 48, 45})));
     }
 
     private static int[] doBubbleSort(int[] arr) {
@@ -21,6 +21,22 @@ public class BubbleSort {
                 }
             }
             if(!swapped) break;
+        }
+        return arr;
+    }
+
+    private static int[] doBubbleSortAgain(int[] arr){
+        if(arr.length<=1)
+            return arr;
+
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr.length-i-1; j++){
+                if(arr[j]>arr[j+1]){
+                    int temp = arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
         }
         return arr;
     }
